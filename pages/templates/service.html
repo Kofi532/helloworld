@@ -1,0 +1,54 @@
+{% extends "base2.html" %}
+{% load crispy_forms_tags %} 
+{% load static %}
+{% block content %}
+     <!-- Navbar Start -->
+     <nav class="navbar navbar-expand-lg bg-dark navbar-dark shadow-sm px-5 py-3 py-lg-0">
+        <a href="index.html" class="navbar-brand p-0">
+            <h1 class="m-0 text-uppercase text-primary"><img style="height: 80px;" src="{% static 'img/gracelogo.png' %}" alt=""> </i>Grace Preparatory School</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0 pe-4 border-end border-5 border-primary">
+                <a href="/" class="nav-item nav-link">Home</a>
+                <a href="/about" class="nav-item nav-link">About</a>
+                <a href="" class="nav-item nav-link active">Service</a>
+                <a href="contact.html" class="nav-item nav-link">Contact</a>
+            </div>
+            <div class="d-none d-lg-flex align-items-center ps-4">
+                <i class="fa fa-2x fa-mobile-alt text-secondary me-3"></i>
+                <div>
+                    <h5 class="text-primary mb-1"><small>Call Now</small></h5>
+                    <h6 class="text-light m-0">+012 345 6789</h6>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+    
+<head>
+  <title>Simple Login Form Example</title>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'><link rel="stylesheet" href="{% static 'templates/style.css ' %}">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="container py-5">
+	<h1>Register</h1>
+	<form method="POST">
+		{% csrf_token %}
+		{{ register_form|crispy }}                    
+		<button class="btn btn-primary" type="submit">Register</button>
+	</form>
+	<p class="text-center">If you already have an account, <a href="/login">login</a> instead.</p>
+</div>
+<!-- partial -->
+  <script  src="{% static 'templates/script.js' %}"></script>
+
+</body>
+</html>
+
+{% endblock content %}

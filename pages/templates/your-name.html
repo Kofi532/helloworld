@@ -1,0 +1,10 @@
+{% load static %}
+
+{% load static %}
+{% block content %}    
+    {% for file in brands %}
+        <img src="{% static 'kofi/' %}{{ file }%}" width="500px" />
+    {% endfor %}
+     
+    {% endblock %}
+
