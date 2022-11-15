@@ -11,7 +11,7 @@ class Post(models.Model):
 
     Approve = models.CharField(max_length=6, choices=COLOR_CHOICES, default='None')
     Comments = models.CharField(max_length=50,  default='None')
-    date = date = models.DateTimeField(default=timezone.now)
+    date = models.DateTimeField(default=timezone.now)
     def __str__(self):
         return self.Approve
   

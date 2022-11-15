@@ -1,8 +1,12 @@
 
-
+{% block content %}
 {%  for field in all_posts %}
-<h2 style="font-style: normal;">Approved: {{ field.Approve }}</h2> <h2 style="font-style: normal;">Comments: {{ field.Comments }}</h2> <h2 style="font-style: normal;">Date: {{ field.date }}</h2>
+<h2 style="font-style: normal; margin-top: 50px; color: brown;">Approved:-   {{ field.Approve }}</h2> <h2 style="font-style: normal;">Comments:     {{ field.Comments }}</h2> <h2 style="font-style: normal;">Date:     {{ field.date }}</h2>
+<div>
+    <a href="{% include "approval.html" %}"></a>
+</div>
 {% endfor %}
+{% endblock content %}
 
 
 

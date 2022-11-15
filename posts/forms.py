@@ -5,11 +5,9 @@ class PostForm(forms.ModelForm):
 
     class Meta:
         model = Post
-        fields = ["title", "cover", "surname", "firstname", "level", "date"]
-
+        fields = "__all__"
 
 class ApproveForm(forms.ModelForm):
-
     class Meta:
         model = Post_a
-        fields = ["Approve"]
+        fields = ['Approve', 'Comments', 'Date']

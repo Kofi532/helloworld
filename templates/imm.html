@@ -1,52 +1,27 @@
+<!DOCTYPE html>
 <html>
-	<head>
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<title>Title</title>
-		<meta name="language" content="en" />  
+   <head>
+      <title>tut</title>
+   </head>
+   <body>
+	{% csrf_token %}
 
-		<meta name="description" content="" />  
+	{% for x in all_posts %}
+	<h1>This: {{ x }} </h1>
+	{% endfor %}
+      <form method="post" enctype="multipart/form-data">
+         {% csrf_token %}
 
-		<meta name="keywords" content="" />
-		<style type="text/css">
-			ul li {list-style: none; margin-bottom: 15px;}
-			ul li img {display: block;}
-			ul li span {display: block;}
-		</style>
-	</head>
-	<body>
+		 {{ forms.all_posts.as_p }}
+         <label><h3>Teacher</h3></label>
+         //accessing form 1 from view
+         {{ forms.Postform.as_p }}
+         <label><h3>Student</h3></label>
+         //accessing form 2 from view
+         {{ forms.Approveform.as_p }}
+         <input type="submit" value="submit"/>
+      </form>
+	
 
-	<?php
-
-	// open this directory 
-	$myDirectory = opendir("images");
-
-	// get each entry
-	while($entryName = readdir($myDirectory)) {
-		$dirArray[] = $entryName;
-	}
-
-	// close directory
-	closedir($myDirectory);
-
-	//	count elements in array
-	$indexCount	= count($dirArray);
-
-	?>
-
-	<ul>
-
-		<?php
-		// loop through the array of files and print them all in a list
-		for($index=0; $index < $indexCount; $index++) {
-			$extension = substr($dirArray[$index], -3);
-			if ($extension == 'jpg'){ // list only jpgs
-				echo '<li><img src="images/' . $dirArray[$index] . '" alt="Image" /><span>' . $dirArray[$index] . '</span>';
-			}	
-		}
-		?>
-
-	</ul>	
-
-
-</body>
+   </body>
 </html>

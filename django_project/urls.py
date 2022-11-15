@@ -6,15 +6,16 @@ import approve
 from posts.views import CreatePostView
 from users import views as user_views
 from pages import views as user_view
+from posts import views as user_viewp
 from approve import views as approve_view
 from django.conf import settings
 from django.conf.urls.static import static
 from pages.views import HoPageView, uploadImg, AboutPageView
-from posts.views import HomePageView, CreatePostView
+from posts.views import HomePageView, CreatePostView, List
 from posts import views
-from posts.views import ApprovalPostView
 from pages.views import GreatePostView, PrefectPageView, GalleryPageView
 from approve.views import ApprovePostView
+
 
 
 
@@ -43,9 +44,12 @@ urlpatterns = [
   #  path("prefects/", include("pages.urls")),
     path("gallery/", GalleryPageView.as_view(), name='gallery'),
     path("approve/", ApprovePostView.as_view(), name='approve'),
-    path("approval/", ApprovalPostView.as_view(), name='approve'),
+ #   path("approval/", ApprovalPostView.as_view(), name='approve'),
     path('apview/', approve_view.testing, name='home'),
     path('approve2/', approve_view.a_view, name='home'),
+    path("approve3/", List.as_view(), name="post"),
+    path('approve5/', user_viewp.list_and_create, name='home'),
+
 
 ]
 

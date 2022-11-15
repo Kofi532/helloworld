@@ -1,13 +1,20 @@
 from django.db import models
 from django.utils import timezone
+import uuid
+
+
+
+
 
 class Post(models.Model):
-    title = models.TextField()
-    cover = models.ImageField(upload_to='images/')
-    surname = models.CharField(max_length=25, default='DEFAULT VALUE')
-    firstname = models.CharField(max_length=25, default='DEFAULT VALUE')
-    level = models.CharField(max_length=25, default='DEFAULT VALUE')
+    title = models.TextField(max_length=20, default='type here')
+    content = models.TextField(max_length=60, default='type here')
+    image = models.ImageField(default='Please upload image')
+    surname = models.CharField(max_length=25, default='type here')
+    firstname = models.CharField(max_length=25, default='type here')
+    level = models.CharField(max_length=25, default='type here')
     date = date = models.DateTimeField(default=timezone.now)
+    Ied = models.CharField(max_length=50, default=uuid.uuid1())
     def __str__(self):
         return self.title
 
@@ -18,9 +25,11 @@ COLOR_CHOICES = (
 
 class Post_a(models.Model):
 
-    Approve = models.CharField(max_length=6, choices=COLOR_CHOICES, default='green')
+    Approve = models.CharField(max_length=6, choices=COLOR_CHOICES, default='.')
+    Comments = models.CharField(max_length=50, default='.')
+    Date =  models.DateTimeField(default=timezone.now)
     def __str__(self):
-        return self.title
+        return self.Approve
 
 class Experience(models.Model):
     id = models.AutoField(primary_key=True)
