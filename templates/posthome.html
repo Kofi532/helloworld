@@ -36,18 +36,20 @@
               <h3 class="title mb-1"><a href="blog-post.html">{{ post.title }}</a></h3>
               <div class="meta mb-1"><span class="date">Published by {{ post.surname }} <span>{{ post.firstname }}</span> on  {{ post.date }}</span></div>
               <div class="intro">{{ post.content }} </div>
-              <form method="post" enctype="multipart/form-data">
+              <div class="intro">{{ post.idd }} </div>
+              <form method="POST" enctype="multipart/form-data">
 
                 {% csrf_token %}
                 {{ form }}
                 <button type="submit">Submit</button>
             </form>
+            <a href="/members/">Approve</a>
+            <a href="/members/">Delete</a>
             </div><!--//media-body-->
           </div><!--//media-->
         </div><!--//item-->
       </div>
     </section>
-
 
     
   {% endfor %}

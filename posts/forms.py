@@ -10,4 +10,4 @@ class PostForm(forms.ModelForm):
 class ApproveForm(forms.ModelForm):
     class Meta:
         model = Post_a
-        fields = ['Approve', 'Comments', 'Date']
+        fields = ['Approve', 'Comments', 'Date', 'idd']

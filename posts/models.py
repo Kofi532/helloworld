@@ -3,6 +3,10 @@ from django.utils import timezone
 import uuid
 
 
+COLOR_CHOICES = (
+    ('yes','Yes'),
+    ('no', 'No'),
+)
 
 
 
@@ -13,21 +17,21 @@ class Post(models.Model):
     surname = models.CharField(max_length=25, default='type here')
     firstname = models.CharField(max_length=25, default='type here')
     level = models.CharField(max_length=25, default='type here')
-    date = date = models.DateTimeField(default=timezone.now)
-    Ied = models.CharField(max_length=50, default=uuid.uuid1())
+    date  = models.DateTimeField(default=timezone.now)
+    idd = models.CharField(max_length=50, default=uuid.uuid1())
+    approve = models.CharField(max_length=5, default='No')
+
     def __str__(self):
         return self.title
-
-COLOR_CHOICES = (
-    ('yes','Yes'),
-    ('no', 'No'),
-)
 
 class Post_a(models.Model):
 
     Approve = models.CharField(max_length=6, choices=COLOR_CHOICES, default='.')
     Comments = models.CharField(max_length=50, default='.')
     Date =  models.DateTimeField(default=timezone.now)
+    idd = models.CharField(max_length=50, default="Clear and paste here")
+
+
     def __str__(self):
         return self.Approve
 

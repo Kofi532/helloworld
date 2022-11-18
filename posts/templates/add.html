@@ -1,0 +1,35 @@
+<h1>Add member</h1>
+
+{% for x in mymembers %}
+<h1>this: {{ x.idd }} </h1>
+
+title=x, content=y, image=a, surname=b, firstname =c, level=d, date = e, idd= f 
+<form action="addrecord/" method="post">
+{% csrf_token %}
+First Name:<br>
+<input value="{{ x.title }}" name="first">
+<br><br>
+Last Name:<br>
+<input value="{{ x.content }}" name="last">
+<br><br>
+First Name:<br>
+<input value="{{ x.image.url }}" name="three">
+<br><br>
+First Name:<br>
+<input value="{{ x.surname }}" name="four">
+<br><br>
+First Name:<br>
+<input value="{{ x.firstname }}" name="five">
+<br><br>
+First Name:<br>
+<input value="{{ x.level }}" name="six">
+<br><br>
+First Name:<br>
+<input value="{{ x.date }}" type="text" name="seven">
+<br><br>
+First Name:<br>
+<input value="{{ x.idd }}" name="eight">
+<br><br>
+<input type="submit" value="Submit">
+</form>
+{% endfor %}

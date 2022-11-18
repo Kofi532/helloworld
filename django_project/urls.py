@@ -20,6 +20,7 @@ from approve.views import ApprovePostView
 
 
 urlpatterns = [
+    
     path("", GreatePostView.as_view(), name='home'),
     path("prefects/", PrefectPageView.as_view(), name='prefects'),
     path("about/", AboutPageView.as_view(), name="your-name"),
@@ -49,6 +50,9 @@ urlpatterns = [
     path('approve2/', approve_view.a_view, name='home'),
     path("approve3/", List.as_view(), name="post"),
     path('approve5/', user_viewp.list_and_create, name='home'),
+    path('approve6/', user_viewp.meetings, name='home'),
+    path('members/', include('posts.urls')),
+    path('ablog/', user_viewp.ablog, name='blog'),
 
 
 ]

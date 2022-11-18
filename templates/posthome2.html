@@ -23,7 +23,7 @@
 </head>
 
 <ul>
-  {% for post in objects %}
+  {% for post in rake %}
 
   <div style="margin-left: 10px;" class="main-wrapper">
 	    
@@ -36,11 +36,13 @@
               <h3 class="title mb-1"><a href="blog-post.html">{{ post.title }}</a></h3>
               <div class="meta mb-1"><span class="date">Published by {{ post.surname }} <span>{{ post.firstname }}</span> on  {{ post.date }}</span></div>
               <div class="intro">{{ post.content }} </div>
-              <form method="post" action="">
+              <div class="intro">{{ post.idd }} </div>
+              <form method="POST" enctype="multipart/form-data">
+
                 {% csrf_token %}
-                  {{ form }}
-                  <input type="submit" value="Submit">
-              </form>
+                {{ form }}
+                <button type="submit">Submit</button>
+            </form>
             </div><!--//media-body-->
           </div><!--//media-->
         </div><!--//item-->
@@ -50,9 +52,13 @@
 
     
   {% endfor %}
-
+  
+  {% for post in objectss %}
+  <img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="{{ post.image.url }}" alt="image">
+ {% endfor %}
 
 </ul>
+
 
 {% else %}
 

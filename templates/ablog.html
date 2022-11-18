@@ -1,0 +1,94 @@
+{% extends "base2.html" %}
+
+{% block content %}
+{% if user.is_authenticated %}
+{% load static %}
+
+<head>
+    <title>Bootstrap 4 Blog Template For Developers</title>
+    
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blog Template">
+    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">    
+    <link rel="shortcut icon" href="favicon.ico"> 
+    
+    <!-- FontAwesome JS-->
+    <script defer src="https://use.fontawesome.com/releases/v5.7.1/js/all.js" integrity="sha384-eVEQC9zshBn0rFj4+TU78eNA19HMNigMviK/PU/FFjLXqa/GKPgX58rvt5Z8PLs7" crossorigin="anonymous"></script>
+    
+    <!-- Theme CSS -->  
+    <link id="theme-style" rel="stylesheet" href="{% static '/assets/css/theme-1.css' %}">
+
+
+</head>
+     <!-- Navbar Start -->
+     <nav style="background-color: #002147;" class="navbar navbar-expand-lg navbar-dark shadow-sm px-5 py-3 py-lg-0">
+        <a href="/" class="navbar-brand p-0">
+            <h1 class="m-0 text-uppercase text-primary"><img style="height: 80px;" src="{% static 'img/gracelogo.jpg' %}" alt=""> </i>Grace Preparatory School</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0 pe-4 border-end border-5 border-primary">
+                <a href="" class="nav-item nav-link">Home</a>
+                <a href="/about/" class="nav-item nav-link">Units</a>
+                <a href="/we" class="nav-item nav-link active">Students</a>
+            </div>
+            <div class="d-none d-lg-flex align-items-center ps-4">
+                <i class="fa fa-2x fa-mobile-alt text-secondary me-3"></i>
+                <div>
+                    <h5 class="text-primary mb-1"><small>Call Now</small></h5>
+                    <h6 class="text-light m-0">0205776640</h6>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+<ul>
+  {% for post in stu_blog %}
+
+  <div style="margin-left: 10px;" class="main-wrapper">
+	    
+    <section class="blog-list px-3 py-5 p-md-5">
+      <div class="container">
+        <div class="item mb-5">
+          <div class="media">
+            <img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="{{ post.image.url }}" alt="image">
+            <div class="media-body">
+              <h3 class="title mb-1"><a href="blog-post.html">{{ post.title }}</a></h3>
+              <div class="meta mb-1"><span class="date">Published by {{ post.surname }} <span>{{ post.firstname }}</span> on  {{ post.date }}</span></div>
+              <div class="intro">{{ post.content }} </div>
+              <div class="intro">{{ post.idd }} </div>
+            </div><!--//media-body-->
+          </div><!--//media-->
+        </div><!--//item-->
+      </div>
+    </section>
+
+    
+  {% endfor %}
+  
+
+
+</ul>
+
+
+{% else %}
+
+<h1>Kindly login first</h1>
+
+{% endif %}
+
+    <!-- Javascript -->          
+
+    <script src="{% static 'assets/plugins/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'assets/plugins/popper.min.js' %}"></script> 
+    <script src="{% static 'assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script> 
+     
+    <!-- Style Switcher (REMOVE ON YOUR PRODUCTION SITE) -->
+    <script src="{% static 'assets/js/demo/style-switcher.js' %}"></script>   
+
+    {% endblock content %}
