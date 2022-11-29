@@ -3,6 +3,7 @@ from django.utils import timezone
 import uuid
 
 
+
 COLOR_CHOICES = (
     ('yes','Yes'),
     ('no', 'No'),
@@ -11,6 +12,7 @@ COLOR_CHOICES = (
 
 
 class Post(models.Model):
+    username = title = models.TextField(max_length=10, default='Paste here')
     title = models.TextField(max_length=20, default='type here')
     content = models.TextField(max_length=60, default='type here')
     image = models.ImageField(default='Please upload image')
@@ -19,7 +21,7 @@ class Post(models.Model):
     level = models.CharField(max_length=25, default='type here')
     date  = models.DateTimeField(default=timezone.now)
     idd = models.CharField(max_length=50, default=uuid.uuid1())
-    approve = models.CharField(max_length=5, default='No')
+    approve = models.CharField(max_length=10, default='Pending')
 
     def __str__(self):
         return self.title

@@ -33,7 +33,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto py-0 pe-4 border-end border-5 border-primary">
-                <a href="" class="nav-item nav-link">Home</a>
+                <a href="/" class="nav-item nav-link">Home</a>
                 <a href="/about/" class="nav-item nav-link">Units</a>
                 <a href="/we" class="nav-item nav-link active">Students</a>
             </div>
@@ -48,6 +48,8 @@
     </nav>
     <!-- Navbar End -->
 <ul>
+
+  <h1>Student Blog</h1>
   {% for post in stu_blog %}
 
   <div style="margin-left: 10px;" class="main-wrapper">
@@ -61,14 +63,52 @@
               <h3 class="title mb-1"><a href="blog-post.html">{{ post.title }}</a></h3>
               <div class="meta mb-1"><span class="date">Published by {{ post.surname }} <span>{{ post.firstname }}</span> on  {{ post.date }}</span></div>
               <div class="intro">{{ post.content }} </div>
-              <div class="intro">{{ post.idd }} </div>
             </div><!--//media-body-->
           </div><!--//media-->
         </div><!--//item-->
       </div>
     </section>
+  {% endfor %}
 
-    
+  <h1>Sports</h1>
+  {% for post in spo_blog %}
+
+  <div style="margin-left: 10px;" class="main-wrapper">
+	    
+    <section class="blog-list px-3 py-5 p-md-5">
+      <div class="container">
+        <div class="item mb-5">
+          <div class="media">
+            <img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="{{ post.image.url }}" alt="image">
+            <div class="media-body">
+              <h3 class="title mb-1"><a href="blog-post.html">{{ post.title }}</a></h3>
+              <div class="meta mb-1"><span class="date">Published by {{ post.surname }} <span>{{ post.firstname }}</span> on  {{ post.date }}</span></div>
+            </div><!--//media-body-->
+          </div><!--//media-->
+        </div><!--//item-->
+      </div>
+    </section>
+  {% endfor %}
+
+  <h1>Club </h1>
+  {% for post in clu_blog %}
+
+  <div style="margin-left: 10px;" class="main-wrapper">
+	    
+    <section class="blog-list px-3 py-5 p-md-5">
+      <div class="container">
+        <div class="item mb-5">
+          <div class="media">
+            <img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="{{ post.image.url }}" alt="image">
+            <div class="media-body">
+              <h3 class="title mb-1"><a href="blog-post.html">{{ post.title }}</a></h3>
+              <div class="meta mb-1"><span class="date">Published by {{ post.surname }} <span>{{ post.firstname }}</span> on  {{ post.date }}</span></div>
+              <div class="intro">{{ post.message }} </div>
+           </div><!--//media-body-->
+          </div><!--//media-->
+        </div><!--//item-->
+      </div>
+    </section>
   {% endfor %}
   
 

@@ -1,27 +1,9 @@
-<!DOCTYPE html>
-<html>
-   <head>
-      <title>tut</title>
-   </head>
-   <body>
-	{% csrf_token %}
+{% extends "base2.html" %}
+{% load static %}
+{% block content %}
 
-	{% for x in all_posts %}
-	<h1>This: {{ x }} </h1>
-	{% endfor %}
-      <form method="post" enctype="multipart/form-data">
-         {% csrf_token %}
 
-		 {{ forms.all_posts.as_p }}
-         <label><h3>Teacher</h3></label>
-         //accessing form 1 from view
-         {{ forms.Postform.as_p }}
-         <label><h3>Student</h3></label>
-         //accessing form 2 from view
-         {{ forms.Approveform.as_p }}
-         <input type="submit" value="submit"/>
-      </form>
-	
+<h1>Kindly login with required details</h1>
 
-   </body>
-</html>
+
+{% endblock content %}

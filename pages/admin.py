@@ -1,6 +1,8 @@
 from django.contrib import admin
-from .models import Post
+from .models import Post, Clubm, Sportm
 
 admin.site.register(Post)
-# Register your models here.
+admin.site.register(Clubm)
+admin.site.register(Sportm)
 
+# Register your models here.

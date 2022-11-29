@@ -15,4 +15,15 @@ class Post(models.Model):
     def __str__(self):
         return self.Approve
   
- 
+class Cals(models.Model):
+    username = models.CharField(max_length=15, default='Paste your username here')
+    title = models.CharField(max_length=25, default='Type here')
+    eventdate = models.DateTimeField(default=timezone.now)
+    eventtime = models.CharField(max_length=10, default='HH:MM')
+    date  = models.DateTimeField(default=timezone.now)
+    approve = models.CharField(max_length=10, default='Pending')
+
+
+
+    def __str__(self):
+        return self.username

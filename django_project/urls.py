@@ -10,18 +10,19 @@ from posts import views as user_viewp
 from approve import views as approve_view
 from django.conf import settings
 from django.conf.urls.static import static
-from pages.views import HoPageView, uploadImg, AboutPageView
-from posts.views import HomePageView, CreatePostView, List
+from pages.views import HoPageView, uploadImg, AboutPageView, SportsView, ClubsView, ServicePageView
+from posts.views import HomePageView, CreatePostView, List, AppView
 from posts import views
 from pages.views import GreatePostView, PrefectPageView, GalleryPageView
-from approve.views import ApprovePostView
+from approve.views import ApprovePostView, CalsPostView
+
 
 
 
 
 urlpatterns = [
     
-    path("", GreatePostView.as_view(), name='home'),
+ #     path("", GreatePostView.as_view(), name='home'),
     path("prefects/", PrefectPageView.as_view(), name='prefects'),
     path("about/", AboutPageView.as_view(), name="your-name"),
     path("admin/", admin.site.urls),
@@ -44,7 +45,7 @@ urlpatterns = [
   #  path('modelview/', views.ExperienceList.as_view(), name='experience_list'),
   #  path("prefects/", include("pages.urls")),
     path("gallery/", GalleryPageView.as_view(), name='gallery'),
-    path("approve/", ApprovePostView.as_view(), name='approve'),
+  #   path("approve/", ApprovePostView.as_view(), name='approve'),
  #   path("approval/", ApprovalPostView.as_view(), name='approve'),
     path('apview/', approve_view.testing, name='home'),
     path('approve2/', approve_view.a_view, name='home'),
@@ -53,7 +54,19 @@ urlpatterns = [
     path('approve6/', user_viewp.meetings, name='home'),
     path('members/', include('posts.urls')),
     path('ablog/', user_viewp.ablog, name='blog'),
-
+    path('', user_view.home_and_create, name='home'),
+    path("sports/", SportsView.as_view(), name='approve'),
+    path("clubs/", ClubsView.as_view(), name='approve'),
+    path("aclubs/", user_viewp.pclub, name='approve'),
+    path("asports/", user_viewp.psport, name='approve'),
+    path("aapprove/", AppView.as_view(), name='prefects'),
+    path('a/', include('approve.urls')),
+    path('u/', include('users.urls')),
+    path('students/', user_views.stu_zone, name='home'),
+    path("rich/", ServicePageView.as_view(), name='approve'),
+    path('rich2/', approve_view.calenda, name='home'),
+    path("event/", CalsPostView.as_view(), name='prefects'),
+    
 
 ]
 

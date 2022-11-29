@@ -1,9 +1,8 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
-from django.views.generic import ListView, CreateView, FormView
+from django.views.generic import ListView, CreateView, FormView, TemplateView
 from .models import Post, Experience, Post_a
 from django.urls import reverse_lazy  # new
-from multi_form_view import MultiModelFormView
 from django.views import generic
 from .forms import PostForm, ApproveForm
 from django.shortcuts import render
@@ -13,24 +12,46 @@ import pandas as pd
 from django.shortcuts import redirect,  get_object_or_404
 from django.urls import reverse
 from django.template import loader
+from pages.models import Clubm, Sportm
+from posts.models import Post as Kk
+
+
+headmistress = ['abena', 'kofiadukpo']
+headboy = ['patrick']
+sports_prefect = ['jake', 'Kwame']
+clubs_prefect = ['selorm', 'kofiadukpo']
+
 
 def index(request):
-  mymembers = Post.objects.all().values()
+  username = None
+  username = request.user.username 
+  mymembers = Post.objects.all().filter(approve='Pending')
   template = loader.get_template('delete.html')
+  #template = loader.get_template('posthome.html')
   context = {
     'mymembers': mymembers,
   }
-  return HttpResponse(template.render(context, request))
+  if username in headmistress:
+    return HttpResponse(template.render(context, request))
+  else:
+    return render(request, 'imm.html')
 
 def add(request):
-    mymembers = Post.objects.all().values()
-    template = loader.get_template('add.html')
-    context = {
-        'mymembers': mymembers,
-    }
+  username = None
+  username = request.user.username 
+  mymembers = Post.objects.all().filter(approve='Pending')
+  template = loader.get_template('add.html')
+  context = {
+      'mymembers': mymembers,
+  }
+  if username in headmistress:
     return HttpResponse(template.render(context, request))
+  else:
+    return render(request, 'imm.html')
 
 def addrecord(request):
+  username = None
+  username = request.user.username 
   x = request.POST['first']
   y = request.POST['last']
   a = request.POST['three']
@@ -42,27 +63,48 @@ def addrecord(request):
   g = request.POST['nine']
   member = Post(title=x, content=y, image=a, surname=b, firstname =c, level=d, date = e, idd= f, approve=g  )
   member.save()
-  return HttpResponseRedirect(reverse('index'))
+  if username in headmistress: 
+    return HttpResponseRedirect(reverse('index'))
+  else:
+    return render(request, 'imm.html')
 
 def delete(request, id):
+  username = None
+  username = request.user.username 
   member = Post.objects.get(id=id)
   member.delete()
-  return HttpResponseRedirect(reverse('index'))
+  if username in headmistress:
+    return HttpResponseRedirect(reverse('index'))
+  else:
+    return render(request, 'imm.html')
 
 def update(request, id):
+  username = None
+  username = request.user.username 
   mymember = Post.objects.get(id=id)
   template = loader.get_template('update.html')
   context = {
     'mymember': mymember,
   }
-  return HttpResponse(template.render(context, request))
+  if username in headmistress:
+    return HttpResponse(template.render(context, request))
+  else:
+    return render(request, 'imm.html')
 
 def updaterecord(request, id):
+  username = None
+  username = request.user.username 
   nine = request.POST['nine']
   member = Post.objects.get(id=id)
   member.approve = nine
   member.save()
-  return HttpResponseRedirect(reverse('index'))
+  if username in headmistress:
+    return HttpResponseRedirect(reverse('index'))
+  else:
+    return render(request, 'imm.html')
+
+#
+
 
 
 
@@ -76,20 +118,20 @@ class HomePageView(ListView):
         context['form'] = ApproveForm()
         return context
 
-def ablog(request):
-    stu_blog = Post.objects.all().filter(approve='yes')
-    return render(request, 'ablog.html', {'stu_blog': stu_blog})
 
+def ablog(request):
+  username = None
+  username = request.user.username
+  stu_blog = Post.objects.all().filter(approve='yes')
+  clu_blog = Clubm.objects.all().filter(approve='yes')
+  spo_blog = Sportm.objects.all().filter(approve='yes')
+  return render(request, 'ablog.html', {'stu_blog': stu_blog, 'clu_blog': clu_blog, 'spo_blog': spo_blog})
 
 def list_and_create(request):
-    
-    if request.method == 'POST':
-        form = ApproveForm(request.POST or None)
-        form.save()
-    else:
-        form = ApproveForm()
+    username = None
+    username = request.user.username    
     # notice this comes after saving the form to pick up new objects
-    objects = Post.objects.all()
+    objects = Post.objects.all().filter(approve='Pending')
     elements = Post_a.objects.all()
     df = pd.DataFrame(Post.objects.all().values())
     df2 = pd.DataFrame(Post_a.objects.all().values())
@@ -97,8 +139,35 @@ def list_and_create(request):
 
     cols = [i for i in df3]
     rake = [dict(zip(cols, i)) for i in df3.values]
-    return render(request, 'posthome.html', {'objects': objects, 'form': form, 'rake': rake})
+    if username in headmistress:
+      return render(request, 'posthome.html', {'objects': objects, 'rake': rake})
+    else:
+      return render(request, 'imm.html')
 
+
+def pclub(request):
+  username = None
+  username = request.user.username  
+  coc = Clubm.objects.all().filter(approve='Pending')
+  if username in headmistress:  
+    return render(request, 'aclub.html', {'coc': coc})
+  else:
+    return render(request, 'imm.html')
+
+
+def psport(request):
+  username = None
+  username = request.user.username 
+  coc = Sportm.objects.all().filter(approve='Pending')
+  if username in headmistress:
+    return render(request, 'asport.html', {'coc': coc})
+  else:
+    return render(request, 'imm.html')
+
+
+class AppView(TemplateView):
+
+    template_name = "approv.html"
 
 
 def students_blog(request):

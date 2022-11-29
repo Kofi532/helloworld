@@ -1,9 +1,10 @@
 
-{% if user.is_authenticated %}
-{% load static %}
 
+{% extends "base2.html" %}
+{% load static %}
+{% block content %}
 <head>
-    <title>Bootstrap 4 Blog Template For Developers</title>
+    <title>Grace</title>
     
     <!-- Meta -->
     <meta charset="utf-8">
@@ -21,7 +22,31 @@
 
 
 </head>
-
+     <!-- Navbar Start -->
+     <nav style="background-color: #002147;" class="navbar navbar-expand-lg navbar-dark shadow-sm px-5 py-3 py-lg-0">
+      <a href="/" class="navbar-brand p-0">
+          <h1 class="m-0 text-uppercase text-primary"><img style="height: 80px;" src="{% static 'img/gracelogo.jpg' %}" alt=""> </i>Grace Preparatory School</h1>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+          <div class="navbar-nav ms-auto py-0 pe-4 border-end border-5 border-primary">
+              <a href="" class="nav-item nav-link ">Home</a>
+              <a href="/about/" class="nav-item nav-link">Units</a>
+              <a href="/students/" class="nav-item nav-link active">Students</a>
+          </div>
+          <div class="d-none d-lg-flex align-items-center ps-4">
+              <i class="fa fa-2x fa-mobile-alt text-secondary me-3"></i>
+              <div>
+                  <h5 class="text-primary mb-1"><small>Call Now</small></h5>
+                  <h6 class="text-light m-0">0205776640</h6>
+              </div>
+          </div>
+      </div>
+  </nav>
+  <!-- Navbar End -->
+{% if user.is_authenticated %}
 <ul>
   {% for post in objects %}
 
@@ -37,12 +62,6 @@
               <div class="meta mb-1"><span class="date">Published by {{ post.surname }} <span>{{ post.firstname }}</span> on  {{ post.date }}</span></div>
               <div class="intro">{{ post.content }} </div>
               <div class="intro">{{ post.idd }} </div>
-              <form method="POST" enctype="multipart/form-data">
-
-                {% csrf_token %}
-                {{ form }}
-                <button type="submit">Submit</button>
-            </form>
             <a href="/members/">Approve</a>
             <a href="/members/">Delete</a>
             </div><!--//media-body-->
@@ -64,7 +83,7 @@
 <h1>Kindly login first</h1>
 
 {% endif %}
-
+{% endblock content %}
     <!-- Javascript -->          
 
     <script src="{% static 'assets/plugins/jquery-3.3.1.min.js' %}"></script>

@@ -1,35 +1,44 @@
+{% extends "base2.html" %}
+{% load static %}
+{% block content %}
 <h1>Add member</h1>
+{% if user.is_authenticated %}
 
-{% for x in mymembers %}
 <h1>this: {{ x.idd }} </h1>
 
-title=x, content=y, image=a, surname=b, firstname =c, level=d, date = e, idd= f 
 <form action="addrecord/" method="post">
 {% csrf_token %}
-First Name:<br>
-<input value="{{ x.title }}" name="first">
+Title:<br>
+<input name="first">
 <br><br>
-Last Name:<br>
-<input value="{{ x.content }}" name="last">
+content:<br>
+<input name="last">
 <br><br>
-First Name:<br>
-<input value="{{ x.image.url }}" name="three">
+Image:<br>
+<input name="three">
 <br><br>
-First Name:<br>
-<input value="{{ x.surname }}" name="four">
-<br><br>
-First Name:<br>
-<input value="{{ x.firstname }}" name="five">
+Surname:<br>
+<input name="four">
 <br><br>
 First Name:<br>
-<input value="{{ x.level }}" name="six">
+<input name="five">
+<br><br>
+Class:<br>
+<input name="six">
+<br><br>
+Dates:<br>
+<input type="text" name="seven">
 <br><br>
 First Name:<br>
-<input value="{{ x.date }}" type="text" name="seven">
-<br><br>
-First Name:<br>
-<input value="{{ x.idd }}" name="eight">
+<input name="eight">
 <br><br>
 <input type="submit" value="Submit">
 </form>
-{% endfor %}
+
+
+{% else %}
+
+<h1>Kindly login first</h1>
+
+{% endif %}
+{% endblock content %}

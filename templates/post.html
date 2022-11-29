@@ -68,6 +68,7 @@
 
 {% if user.is_authenticated %}
 <h1>Create Post Page</h1>
+<p>This is your username: <span style="font-weight: bold;">{{ user.username }}</span></p>
 <form method="post" enctype="multipart/form-data">
   {% csrf_token %}
   {{ form|crispy}}

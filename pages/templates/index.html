@@ -15,7 +15,8 @@
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
+ 
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
@@ -25,13 +26,15 @@
     <link href="{% static '/templates/lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="{% static '/templates/css/bootstrap.min.css ' %}" rel="stylesheet">
+    <link href="{% static '/templates/css/bootstrap.min.css' %}" rel="stylesheet">
 
     <!-- Template Stylesheet -->
     <link href="{% static '/templates/css/style.css' %}" rel="stylesheet">
     <link href="{% static '/templates/css/popup.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static '/w3images/styles.css' %}">
+    
+    
 
 </head>
 
@@ -50,7 +53,7 @@
             <div class="navbar-nav ms-auto py-0 pe-4 border-end border-5 border-primary">
                 <a href="" class="nav-item nav-link active">Home</a>
                 <a href="/about/" class="nav-item nav-link">Units</a>
-                <a href="/we" class="nav-item nav-link">Students</a>
+                <a href="/students/" class="nav-item nav-link">Students</a>
             </div>
             <div class="d-none d-lg-flex align-items-center ps-4">
                 <i class="fa fa-2x fa-mobile-alt text-secondary me-3"></i>
@@ -88,27 +91,29 @@
           <div style="margin-top: 1px;" class="row gx-0 mb-3 mb-lg-0">
               <div class="col-lg-6 my-lg-5 py-lg-5">
                   <div style="background-color: #DADD98;" class="about-start p-5">
-                      <h1 class="display-5 mb-4">We just love to win!</h1>
-                      <p>Asamoah-Adukpo, Basketball Captain</p>
+                      <h1 class="display-5 mb-4">{{ club1.title }}</h1>
+                      <p>{{ club1.firstname }} {{ club1.surname }} </p>
+                      <p>{{ club1.message }} </p>
                       <a href="gallery/" class="btn btn-secondary rounded-pill py-md-3 px-md-5 mt-4">Gallery</a>
                   </div>
               </div>
               <div class="col-lg-6" style="min-height: 400px;">
                   <div class="position-relative h-100">
-                      <img class="position-absolute w-100 h-100" src="{% static '/img/about-1.jpg' %}" style="object-fit: cover;">
+                      <img class="position-absolute w-100 h-100" src="{{ club1.image.url }}" style="object-fit: cover;">
                   </div>
               </div>
           </div>
           <div style="margin-top: 1px;" class="row gx-0">
               <div class="col-lg-6" style="min-height: 400px;margin-top: 40px;">
                   <div class="position-relative h-100">`
-                      <img class="position-absolute w-100 h-100" src="{% static '/img/about-2.jpg' %}" style="object-fit: cover;">
+                      <img class="position-absolute w-100 h-100" src="{{ sport1.image.url }}" style="object-fit: cover;">
                   </div>
               </div>
               <div class="col-lg-6 my-lg-5 py-lg-5">
                   <div style="background-color: #DADD98;" class="about-end p-5">
-                      <h1 class="display-5 mb-4">I love my country</h1>
-                      <p>Ayorkor Adukpo, KG2</p>
+                      <h1 class="display-5 mb-4">{{ sport1.image.url }}</h1>
+                      <p>{{ sport1.image.url }} {{ sport1.image.url }}</p>
+                      <p>{{ sport1.message }} </p>
                       <a href="gallery/" class="btn btn-secondary rounded-pill py-md-3 px-md-5 mt-4">Gallery</a>
                   </div>
               </div>
@@ -116,8 +121,7 @@
       </div>
   </div>
   <!-- About End -->
-
-
+  
     <!-- Quote Start -->
     <div class="container-fluid bg-quote py-5" style="margin: 90px 0; background-color: #E1EBEE">
         <div class="container py-5">
@@ -148,9 +152,70 @@
   <!-- Quote End -->
 
 
+    <!-- Team Start -->
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <div class="text-center mx-auto mb-5" style="max-width: 500px;">
+                <h1 class="display-5">Editorial Board</h1>
+                <hr class="w-25 mx-auto text-primary" style="opacity: 1;">
+            </div>
+            <div class="row g-3">
+                <div class="col-lg-4 col-md-6">
+                    <div class="team-item">
+                        <img class="img-fluid w-100" src="{% static '/img/about-2.jpg' %}" alt="">
+                        <div class="team-text">
+                            <div class="team-social">
+                                <a class="btn btn-lg btn-secondary btn-lg-square rounded-circle me-2" href="#"><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-lg btn-secondary btn-lg-square rounded-circle me-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-lg btn-secondary btn-lg-square rounded-circle me-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                            <div class="mt-auto mb-3">
+                                <h4 class="mb-1">Full Name</h4>
+                                <span class="text-uppercase">Designation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="team-item">
+                        <img class="img-fluid w-100" src="{% static '/img/about-2.jpg' %}" alt="">
+                        <div class="team-text">
+                            <div class="team-social">
+                                <a class="btn btn-lg btn-secondary btn-lg-square rounded-circle me-2" href="#"><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-lg btn-secondary btn-lg-square rounded-circle me-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-lg btn-secondary btn-lg-square rounded-circle me-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                            <div class="mt-auto mb-3">
+                                <h4 class="mb-1">Full Name</h4>
+                                <span class="text-uppercase">Designation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="team-item">
+                        <img class="img-fluid w-100" src="{% static '/img/about-2.jpg' %}" alt="">
+                        <div class="team-text">
+                            <div class="team-social">
+                                <a class="btn btn-lg btn-secondary btn-lg-square rounded-circle me-2" href="#"><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-lg btn-secondary btn-lg-square rounded-circle me-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-lg btn-secondary btn-lg-square rounded-circle me-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                            <div class="mt-auto mb-3">
+                                <h4 class="mb-1">Full Name</h4>
+                                <span class="text-uppercase">Designation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Team End -->
 
 
   <!-- Blog Start -->
+  
   <div class="container-fluid py-5">
       <div class="container py-5">
           <div class="text-center mx-auto mb-5" style="max-width: 500px;">
@@ -160,58 +225,62 @@
           <div class="row g-3">
               <div class="col-xl-4 col-lg-6">
                   <div style="background-color: #E1EBEE;" class="blog-item">
-                      <img class="img-fluid w-100" src="{% static '/img/blog-1.jpg' %}" alt="">
+                      <img height="400px" width="350px" src="{{ check1.image.url }}" alt="">
                       <div class="d-flex align-items-center">
                           <div class="bg-secondary mt-n4 d-flex flex-column flex-shrink-0 justify-content-center text-center me-4" style="width: 60px; height: 100px;">
                               <i class="fa fa-calendar-alt text-primary mb-2"></i>
-                              <p class="m-0 text-white">Jan 01</p>
-                              <small class="text-white">2045</small>
+                              <p class="m-0 text-white">{{ check1.level }}</p>
                           </div>
-                          <a class="h4 m-0 text-truncate me-4" href="">I had the highest grade in Social Studies</a>
+                          <a class="h4 m-0 text-truncate me-4" href="">{{ check1.title }}</a>
                       </div>
                       <div class="d-flex justify-content-between border-top border-secondary p-4">
                           <div class="d-flex align-items-center">
-                              <small class="text-uppercase">John Doe</small>
+                              <small class="text-uppercase">{{ check1.surname }} {{ check1.firstname }} </small>
                           </div>
                           <div class="d-flex align-items-center">
-                            <small class="ms-3"><i class="fa fa-eye text-secondary me-2"></i>Class 3</small>
+                            <small class="ms-3">{{ check1.date }}</small>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+           
+              <div class="col-xl-4 col-lg-6">
+                  <div class="blog-item" style="background-color: #E1EBEE;">
+                      <img height="400px" width="420px" src="{{ check2.image.url }}" alt="">
+                      <div class="d-flex align-items-center">
+                          <div class="bg-secondary mt-n4 d-flex flex-column flex-shrink-0 justify-content-center text-center me-4" style="width: 60px; height: 100px;">
+                              <i class="fa fa-calendar-alt text-primary mb-2"></i>
+                              <p class="m-0 text-white">{{ check2.level }}</p>
+                          </div>
+                          <a class="h4 m-0 text-truncate me-4" href="">{{ check2.title }}</a>
+                      </div>
+                      <div class="d-flex justify-content-between border-top border-secondary p-4">
+                          <div class="d-flex align-items-center">
+                              <small class="text-uppercase">{{ check2.surname }} {{ check2.firstname }}</small>
+                          </div>
+                          <div class="d-flex align-items-center">
+                            <small class="ms-3">{{ check2.date }}</small>
                         </div>
                       </div>
                   </div>
               </div>
               <div class="col-xl-4 col-lg-6">
                   <div class="blog-item" style="background-color: #E1EBEE;">
-                      <img class="img-fluid w-100" src="{% static '/img/blog-2.jpg' %}" alt="">
+                      <img height="400px" width="420px"  src="{{ check3.image.url }}" alt="">
                       <div class="d-flex align-items-center">
                           <div class="bg-secondary mt-n4 d-flex flex-column flex-shrink-0 justify-content-center text-center me-4" style="width: 60px; height: 100px;">
                               <i class="fa fa-calendar-alt text-primary mb-2"></i>
-                              <p class="m-0 text-white">Jan 01</p>
-                              <small class="text-white">2045</small>
+                              <p class="m-0 text-white">{{ check3.level }}</p>
                           </div>
-                          <a class="h4 m-0 text-truncate me-4" href="">I met the tallest man.</a>
+                          <a class="h4 m-0 text-truncate me-4" href="">{{ check3.title }}</a>
                       </div>
                       <div class="d-flex justify-content-between border-top border-secondary p-4">
                           <div class="d-flex align-items-center">
-                              <small class="text-uppercase">John Doe</small>
+                              <small class="text-uppercase">{{ check3.surname }} {{ check3.firstname }}</small>
                           </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-xl-4 col-lg-6">
-                  <div class="blog-item" style="background-color: #E1EBEE;">
-                      <img class="img-fluid w-100" src="{% static '/img/blog-3.jpg' %}" alt="">
-                      <div class="d-flex align-items-center">
-                          <div class="bg-secondary mt-n4 d-flex flex-column flex-shrink-0 justify-content-center text-center me-4" style="width: 60px; height: 100px;">
-                              <i class="fa fa-calendar-alt text-primary mb-2"></i>
-                              <p class="m-0 text-white">Jan 01</p>
-                              <small class="text-white">2045</small>
-                          </div>
-                          <a class="h4 m-0 text-truncate me-4" href="">My role model</a>
-                      </div>
-                      <div class="d-flex justify-content-between border-top border-secondary p-4">
                           <div class="d-flex align-items-center">
-                              <small class="text-uppercase">John Doe</small>
-                          </div>
+                            <small class="ms-3"></i>{{ check3.date }}</small>
+                        </div>
                       </div>
                   </div>
               </div>
@@ -219,7 +288,7 @@
       </div>
   </div>
   <!-- Blog End -->
-
+    
 
   <!-- Call To Action Start -->
   <div class="container-fluid bg-call-to-action py-5" style="margin-top: 90px; background-color: #E1EBEE;">
@@ -261,6 +330,8 @@ function myFunction() {
   document.getElementById("demo").innerHTML = ".";
 }
 </script>
+
+
 {% endblock content %}
 
 
