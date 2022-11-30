@@ -5,6 +5,11 @@ from django.db import models
 from django.utils import timezone
 from django.db import models
 
+timec = (
+    ('Yes', 'Yes'),
+    ('No', 'No'),
+ )
+
 
 class Post(models.Model):
     surname = models.CharField(max_length=25, default='..')
@@ -14,6 +19,7 @@ class Post(models.Model):
 
     def __str__(self):
         return self.surname
+
 
 
 class Clubm(models.Model):
@@ -26,6 +32,7 @@ class Clubm(models.Model):
     image = models.ImageField(default='Please upload image')
     date  = models.DateTimeField(default=timezone.now)
     approve = models.CharField(max_length=10, default='Pending')
+    act = models.CharField(max_length=10, choices=timec ,default='No')
     
     def __str__(self):
         return self.surname
@@ -40,6 +47,7 @@ class Sportm(models.Model):
     image = models.ImageField(default='Please upload image')
     date  = models.DateTimeField(default=timezone.now)
     approve = models.CharField(max_length=10, default='Pending')
+    act = models.CharField(max_length=10, choices=timec ,default='No')
 
     def __str__(self):
         return self.surname
@@ -72,7 +80,4 @@ yearc = (
     ('2023', '2023'),
     ('2024', '2024'),
 )
-timec = (
-    ('AM', 'AM'),
-    ('PM', 'PM'),
- )
+
