@@ -1,4 +1,7 @@
 {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
 <style>
 body{
   font-family: 'Tahoma';
@@ -114,7 +117,10 @@ body{
   
 }
 
+
 </style>
+<a href="{% include "base3.html" %}"></a>
+
 {% if day1 == 'Monday' %}
  <body>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -637,6 +643,7 @@ body{
               <!-- EVENT END -->
             </li>
 
+            {% if ttt == 1 or ttt == 3 or ttt == 5 or ttt == 7 or ttt == 8 or ttt == 10 or ttt == 12 %}
             <li class="day">
                 <div class="date">31</div>
                 <!-- EVENT START -->
@@ -651,11 +658,7 @@ body{
                   {% endfor %}
                   <!-- EVENT END -->
               </li>
-          </ul>
-          
-    
-         
-
+              {% endif %}
           </ul>
         </div>
      
@@ -1187,20 +1190,22 @@ body{
                 <!-- EVENT END -->
             </li>
 
+            {% if ttt == 1 or ttt == 3 or ttt == 5 or ttt == 7 or ttt == 8 or ttt == 10 or ttt == 12 %}
             <li class="day">
-              <div class="date">31</div>
-              <!-- EVENT START -->
-              {% for x in dd31 %}
-              <div class="event">
-                <div class="event-desc">
-                    {{ x.title }}
-                </div>
-                <div class="event-time">
-                  {{ x.eventtime }}
-                </div>
-                {% endfor %}
-                <!-- EVENT END -->
-            </li>
+                <div class="date">31</div>
+                <!-- EVENT START -->
+                {% for x in dd31 %}
+                <div class="event">
+                  <div class="event-desc">
+                      {{ x.title }}
+                  </div>
+                  <div class="event-time">
+                    {{ x.eventtime }}
+                  </div>
+                  {% endfor %}
+                  <!-- EVENT END -->
+              </li>
+              {% endif %}
         </ul>
         
   
@@ -1741,20 +1746,22 @@ body{
                 <!-- EVENT END -->
             </li>
 
+            {% if ttt == 1 or ttt == 3 or ttt == 5 or ttt == 7 or ttt == 8 or ttt == 10 or ttt == 12 %}
             <li class="day">
-              <div class="date">31</div>
-              <!-- EVENT START -->
-              {% for x in dd31 %}
-              <div class="event">
-                <div class="event-desc">
-                    {{ x.title }}
-                </div>
-                <div class="event-time">
-                  {{ x.eventtime }}
-                </div>
-                {% endfor %}
-                <!-- EVENT END -->
-            </li>
+                <div class="date">31</div>
+                <!-- EVENT START -->
+                {% for x in dd31 %}
+                <div class="event">
+                  <div class="event-desc">
+                      {{ x.title }}
+                  </div>
+                  <div class="event-time">
+                    {{ x.eventtime }}
+                  </div>
+                  {% endfor %}
+                  <!-- EVENT END -->
+              </li>
+              {% endif %}
 
         </ul>
         
@@ -2303,20 +2310,22 @@ body{
                 <!-- EVENT END -->
             </li>
 
+            {% if ttt == 1 or ttt == 3 or ttt == 5 or ttt == 7 or ttt == 8 or ttt == 10 or ttt == 12 %}
             <li class="day">
-              <div class="date">31</div>
-              <!-- EVENT START -->
-              {% for x in dd31 %}
-              <div class="event">
-                <div class="event-desc">
-                    {{ x.title }}
-                </div>
-                <div class="event-time">
-                  {{ x.eventtime }}
-                </div>
-                {% endfor %}
-                <!-- EVENT END -->
-            </li>
+                <div class="date">31</div>
+                <!-- EVENT START -->
+                {% for x in dd31 %}
+                <div class="event">
+                  <div class="event-desc">
+                      {{ x.title }}
+                  </div>
+                  <div class="event-time">
+                    {{ x.eventtime }}
+                  </div>
+                  {% endfor %}
+                  <!-- EVENT END -->
+              </li>
+              {% endif %}
 
 
         </ul>
@@ -2872,10 +2881,501 @@ body{
                 <!-- EVENT END -->
             </li>
 
+            {% if ttt == 1 or ttt == 3 or ttt == 5 or ttt == 7 or ttt == 8 or ttt == 10 or ttt == 12 %}
             <li class="day">
-              <div class="date">31</div>
+                <div class="date">31</div>
+                <!-- EVENT START -->
+                {% for x in dd31 %}
+                <div class="event">
+                  <div class="event-desc">
+                      {{ x.title }}
+                  </div>
+                  <div class="event-time">
+                    {{ x.eventtime }}
+                  </div>
+                  {% endfor %}
+                  <!-- EVENT END -->
+              </li>
+              {% endif %}
+        </ul>
+      </div>
+   
+  
+  </div>
+  <!-- /.wrap -->
+</body>
+{% elif day1 == 'Saturday' %}
+<body>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <div id="calendar-wrap">
+    <header> </header>
+      <h1>{{ month }} {{ yearr }}</h1>
+      <div id="calendar">
+        <ul class="weekdays">
+          <li>Monday</li>
+          <li>Tuesday</li>
+          <li>Wednesday</li>
+          <li>Thursday</li>
+          <li>Friday</li>
+          <li>Saturday</li>
+          <li>Sunday</li>
+        </ul>
+  
+        <!-- week -->
+        <ul class="days">
+          <li class="day other-month">
+          </li>
+        
+  
+        
+          <li class="day other-month">
+            <!-- EVENT END -->            </li>
+        
+  
+    
+          <li class="day other-month">
+            <div class="date">1</div>
+            <!-- EVENT START -->
+           </li>
+       
+  
+       
+          <li class="day other-month">
+            <!-- EVENT END -->            </li>
+        
+  
+        
+          <li class="day other-month">
+            <!-- EVENT END -->            </li>
+       
+  
+       
+          <li class="day">
+            <div class="date">1</div>
+             <!-- EVENT START -->
+             {% for x in dd1 %}
+             <div class="event">
+               <div class="event-desc">
+                   {{ x.title }}
+               </div>
+               <div class="event-time">
+                 {{ x.eventtime }}
+               </div>
+               {% endfor %}
+             <!-- EVENT END -->
+          </li>
+      
+  
+       
+          <li class="day">
+            <div class="date">2</div>
+            <!-- EVENT START -->
+            {% for x in dd2 %}
+            <div class="event">
+              <div class="event-desc">
+                  {{ x.title }}
+              </div>
+              <div class="event-time">
+                {{ x.eventtime }}
+              </div>
+              {% endfor %}
+            <!-- EVENT END -->            </li>
+        </ul>
+        
+        <!-- week -->
+        <ul class="days">
+          <li class="day">
+            <div class="date">3</div>
+            <!-- EVENT START -->
+            {% for x in dd3 %}
+            <div class="event">
+              <div class="event-desc">
+                  {{ x.title }}
+              </div>
+              <div class="event-time">
+                {{ x.eventtime }}
+              </div>
+              {% endfor %}
+            <!-- EVENT END -->            </li>
+        
+  
+        
+          <li class="day">
+            <div class="date">4</div>
+            <!-- EVENT START -->
+            {% for x in dd4 %}
+            <div class="event">
+              <div class="event-desc">
+                  {{ x.title }}
+              </div>
+              <div class="event-time">
+                {{ x.eventtime }}
+              </div>
+              {% endfor %}
+            <!-- EVENT END -->            </li>
+        
+  
+       
+          <li class="da">
+            <div class="date">5</div>
+            <!-- EVENT START -->
+            {% for x in dd5 %}
+            <div class="event">
+              <div class="event-desc">
+                  {{ x.title }}
+              </div>
+              <div class="event-time">
+                {{ x.eventtime }}
+              </div>
+              {% endfor %}
+            <!-- EVENT END -->            
+          </li>
+     
+  
+        
+          <li class="day">
+            <div class="date">6</div>
+            <!-- EVENT START -->
+            {% for x in dd6 %}
+            <div class="event">
+              <div class="event-desc">
+                  {{ x.title }}
+              </div>
+              <div class="event-time">
+                {{ x.eventtime }}
+              </div>
+              {% endfor %}
+            <!-- EVENT END -->         
+          </li>
+        
+  
+       
+          <li class="day">
+            <div class="date">7</div>
+            <!-- EVENT START -->
+            {% for x in dd7 %}
+            <div class="event">
+              <div class="event-desc">
+                  {{ x.title }}
+              </div>
+              <div class="event-time">
+                {{ x.eventtime }}
+              </div>
+              {% endfor %}
+            <!-- EVENT END -->
+          </li>
+        
+  
+       
+          <li class="day">
+            <div class="date">8</div>
+            <!-- EVENT START -->
+            {% for x in dd8 %}
+            <div class="event">
+              <div class="event-desc">
+                  {{ x.title }}
+              </div>
+              <div class="event-time">
+                {{ x.eventtime }}
+              </div>
+              {% endfor %}
+            <!-- EVENT END -->
+          </li>
+      
+  
+       
+          <li class="day">
+            <div class="date">9</div>
+            <!-- EVENT START -->
+            {% for x in dd9 %}
+            <div class="event">
+              <div class="event-desc">
+                  {{ x.title }}
+              </div>
+              <div class="event-time">
+                {{ x.eventtime }}
+              </div>
+              {% endfor %}
+            <!-- EVENT END -->
+          </li>
+        </ul>
+        
+          <!-- week -->
+        <ul class="days">
+          <li class="day">
+            <div class="date">10</div>
+             <!-- EVENT START -->
+             {% for x in dd10 %}
+             <div class="event">
+               <div class="event-desc">
+                   {{ x.title }}
+               </div>
+               <div class="event-time">
+                 {{ x.eventtime }}
+               </div>
+               {% endfor %}
+             <!-- EVENT END -->
+          </li>
+        
+  
+       
+          <li class="day">
+            <div class="date">11</div>
+            <!-- EVENT START -->
+            {% for x in dd11 %}
+            <div class="event">
+              <div class="event-desc">
+                  {{ x.title }}
+              </div>
+              <div class="event-time">
+                {{ x.eventtime }}
+              </div>
+              {% endfor %}
+            <!-- EVENT END -->
+          </li>
+        
+  
+        
+          <li class="da">
+            <div class="date">12</div>
+            <!-- EVENT START -->
+            {% for x in dd12 %}
+            <div class="event">
+              <div class="event-desc">
+                  {{ x.title }}
+              </div>
+              <div class="event-time">
+                {{ x.eventtime }}
+              </div>
+              {% endfor %}
+            <!-- EVENT END -->
+          </li>
+       
+  
+       
+          <li class="day">
+            <div class="date">13</div>
+            <!-- EVENT START -->
+            {% for x in dd13 %}
+            <div class="event">
+              <div class="event-desc">
+                  {{ x.title }}
+              </div>
+              <div class="event-time">
+                {{ x.eventtime }}
+              </div>
+              {% endfor %}
+            <!-- EVENT END -->
+          </li>
+        
+  
+       
+          <li class="day">
+            <div class="date">14</div>
+             <!-- EVENT START -->
+             {% for x in dd14 %}
+             <div class="event">
+               <div class="event-desc">
+                   {{ x.title }}
+               </div>
+               <div class="event-time">
+                 {{ x.eventtime }}
+               </div>
+               {% endfor %}
+             <!-- EVENT END -->
+          </li>
+       
+  
+        
+          <li class="day">
+            <div class="date">15</div>
+            <!-- EVENT START -->
+            {% for x in dd15 %}
+            <div class="event">
+              <div class="event-desc">
+                  {{ x.title }}
+              </div>
+              <div class="event-time">
+                {{ x.eventtime }}
+              </div>
+              {% endfor %}
+            <!-- EVENT END -->
+          </li>
+       
+  
+       
+          <li class="day">
+            <div class="date">16</div>
+            <!-- EVENT START -->
+            {% for x in dd16 %}
+            <div class="event">
+              <div class="event-desc">
+                  {{ x.title }}
+              </div>
+              <div class="event-time">
+                {{ x.eventtime }}
+              </div>
+              {% endfor %}
+            <!-- EVENT END -->
+          </li>
+        </ul>
+        
+          <!-- week -->
+        <ul class="days">
+          <li class="day">
+            <div class="date">17</div>
+            <!-- EVENT START -->
+            {% for x in dd17 %}
+            <div class="event">
+              <div class="event-desc">
+                  {{ x.title }}
+              </div>
+              <div class="event-time">
+                {{ x.eventtime }}
+              </div>
+              {% endfor %}
+            <!-- EVENT END -->
+          </li>
+       
+  
+      
+          <li class="day">
+            <div class="date">18</div>
+            <!-- EVENT START -->
+            {% for x in dd18 %}
+            <div class="event">
+              <div class="event-desc">
+                  {{ x.title }}
+              </div>
+              <div class="event-time">
+                {{ x.eventtime }}
+              </div>
+              {% endfor %}
+            <!-- EVENT END -->
+          </li>
+        
+  
+      
+          <li class="da">
+            <div class="date">19</div>
+            <!-- EVENT START -->
+            {% for x in dd19 %}
+            <div class="event">
+              <div class="event-desc">
+                  {{ x.title }}
+              </div>
+              <div class="event-time">
+                {{ x.eventtime }}
+              </div>
+              {% endfor %}
+            <!-- EVENT END -->
+          </li>
+        
+   
+          <li class="day">
+            <div class="date">20</div>
+            <!-- EVENT START -->
+            {% for x in dd20 %}
+            <div class="event">
+              <div class="event-desc">
+                  {{ x.title }}
+              </div>
+              <div class="event-time">
+                {{ x.eventtime }}
+              </div>
+              {% endfor %}
+            <!-- EVENT END -->
+          </li>
+        
+  
+       
+          <li class="day">
+            <div class="date">21</div>
+            <!-- EVENT START -->
+            {% for x in dd21 %}
+            <div class="event">
+              <div class="event-desc">
+                  {{ x.title }}
+              </div>
+              <div class="event-time">
+                {{ x.eventtime }}
+              </div>
+              {% endfor %}
+            <!-- EVENT END -->
+          </li>         
+  
+       
+          <li class="day">
+            <div class="date">22</div>
+            <!-- EVENT START -->
+            {% for x in dd22 %}
+            <div class="event">
+              <div class="event-desc">
+                  {{ x.title }}
+              </div>
+              <div class="event-time">
+                {{ x.eventtime }}
+              </div>
+              {% endfor %}
+            <!-- EVENT END -->
+          </li>
+      
+  
+        
+          <li class="day">
+            <div class="date">23</div>
+            <!-- EVENT START -->
+            {% for x in dd23 %}
+            <div class="event">
+              <div class="event-desc">
+                  {{ x.title }}
+              </div>
+              <div class="event-time">
+                {{ x.eventtime }}
+              </div>
+              {% endfor %}
+            <!-- EVENT END -->
+          </li>
+        
+  
+       
+          <li class="day">
+            <div class="date">24</div>
+            <!-- EVENT START -->
+            {% for x in dd24 %}
+            <div class="event">
+              <div class="event-desc">
+                  {{ x.title }}
+              </div>
+              <div class="event-time">
+                {{ x.eventtime }}
+              </div>
+              {% endfor %}
+            <!-- EVENT END -->
+          </li>
+      
+  
+       
+          <li class="day">
+            <div class="date">25</div>
+            <!-- EVENT START -->
+            {% for x in dd25 %}
+            <div class="event">
+              <div class="event-desc">
+                  {{ x.title }}
+              </div>
+              <div class="event-time">
+                {{ x.eventtime }}
+              </div>
+              {% endfor %}
+            <!-- EVENT END -->
+          </li>
+
+          <li class="day">
+              <div class="date">26</div>
               <!-- EVENT START -->
-              {% for x in dd31 %}
+              {% for x in dd26 %}
               <div class="event">
                 <div class="event-desc">
                     {{ x.title }}
@@ -2887,6 +3387,657 @@ body{
                 <!-- EVENT END -->
             </li>
 
+            <li class="day">
+              <div class="date">27</div>
+              <!-- EVENT START -->
+              {% for x in dd27 %}
+              <div class="event">
+                <div class="event-desc">
+                    {{ x.title }}
+                </div>
+                <div class="event-time">
+                  {{ x.eventtime }}
+                </div>
+                {% endfor %}
+                <!-- EVENT END -->
+            </li>
+
+            <li class="day">
+              <div class="date">28</div>
+              <!-- EVENT START -->
+              {% for x in dd28 %}
+              <div class="event">
+                <div class="event-desc">
+                    {{ x.title }}
+                </div>
+                <div class="event-time">
+                  {{ x.eventtime }}
+                </div>
+                {% endfor %}
+                <!-- EVENT END -->
+            </li>
+
+            <li class="day">
+              <div class="date">29</div>
+              <!-- EVENT START -->
+              {% for x in dd29 %}
+              <div class="event">
+                <div class="event-desc">
+                    {{ x.title }}
+                </div>
+                <div class="event-time">
+                  {{ x.eventtime }}
+                </div>
+                {% endfor %}
+                <!-- EVENT END -->
+            </li>
+
+            <li class="day">
+              <div class="date">30</div>
+              <!-- EVENT START -->
+              {% for x in dd30 %}
+              <div class="event">
+                <div class="event-desc">
+                    {{ x.title }}
+                </div>
+                <div class="event-time">
+                  {{ x.eventtime }}
+                </div>
+                {% endfor %}
+                <!-- EVENT END -->
+            </li>
+
+            {% if ttt == 1 or ttt == 3 or ttt == 5 or ttt == 7 or ttt == 8 or ttt == 10 or ttt == 12 %}
+            <li class="day">
+                <div class="date">31</div>
+                <!-- EVENT START -->
+                {% for x in dd31 %}
+                <div class="event">
+                  <div class="event-desc">
+                      {{ x.title }}
+                  </div>
+                  <div class="event-time">
+                    {{ x.eventtime }}
+                  </div>
+                  {% endfor %}
+                  <!-- EVENT END -->
+              </li>
+              {% endif %}
+            </li>
+
+        </ul>
+        
+  
+       
+
+        </ul>
+      </div>
+   
+  
+  </div>
+  <!-- /.wrap -->
+</body>
+{% elif day1 == 'Sunday' %}
+<body>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <div id="calendar-wrap">
+    <header> </header>
+      <h1>{{ month }} {{ yearr }}</h1>
+      <div id="calendar">
+        <ul class="weekdays">
+          <li>Monday</li>
+          <li>Tuesday</li>
+          <li>Wednesday</li>
+          <li>Thursday</li>
+          <li>Friday</li>
+          <li>Saturday</li>
+          <li>Sunday</li>
+        </ul>
+  
+        <!-- week -->
+        <ul class="days">
+          <li class="day other-month">
+          </li>
+        
+  
+        
+          <li class="day other-month">
+            <!-- EVENT END -->            </li>
+        
+  
+    
+          <li class="day other-month">
+            <!-- EVENT START -->
+           </li>
+       
+  
+       
+          <li class="day other-month">
+            <!-- EVENT END -->            </li>
+        
+  
+        
+          <li class="day other-month">
+            <!-- EVENT END -->            </li>
+       
+  
+       
+          <li class="day">
+          </li>
+      
+  
+       
+          <li class="day">
+            <div class="date">1</div>
+            <!-- EVENT START -->
+            {% for x in dd1 %}
+            <div class="event">
+              <div class="event-desc">
+                  {{ x.title }}
+              </div>
+              <div class="event-time">
+                {{ x.eventtime }}
+              </div>
+              {% endfor %}
+            <!-- EVENT END -->            </li>
+        </ul>
+        
+        <!-- week -->
+        <ul class="days">
+          <li class="day">
+            <div class="date">2</div>
+            <!-- EVENT START -->
+            {% for x in dd2 %}
+            <div class="event">
+              <div class="event-desc">
+                  {{ x.title }}
+              </div>
+              <div class="event-time">
+                {{ x.eventtime }}
+              </div>
+              {% endfor %}
+            <!-- EVENT END -->            </li>
+        
+  
+        
+          <li class="day">
+            <div class="date">3</div>
+            <!-- EVENT START -->
+            {% for x in dd3 %}
+            <div class="event">
+              <div class="event-desc">
+                  {{ x.title }}
+              </div>
+              <div class="event-time">
+                {{ x.eventtime }}
+              </div>
+              {% endfor %}
+            <!-- EVENT END -->            </li>
+        
+  
+       
+          <li class="da">
+            <div class="date">4</div>
+            <!-- EVENT START -->
+            {% for x in dd4 %}
+            <div class="event">
+              <div class="event-desc">
+                  {{ x.title }}
+              </div>
+              <div class="event-time">
+                {{ x.eventtime }}
+              </div>
+              {% endfor %}
+            <!-- EVENT END -->            
+          </li>
+     
+  
+        
+          <li class="day">
+            <div class="date">5</div>
+            <!-- EVENT START -->
+            {% for x in dd5 %}
+            <div class="event">
+              <div class="event-desc">
+                  {{ x.title }}
+              </div>
+              <div class="event-time">
+                {{ x.eventtime }}
+              </div>
+              {% endfor %}
+            <!-- EVENT END -->         
+          </li>
+        
+  
+       
+          <li class="day">
+            <div class="date">6</div>
+            <!-- EVENT START -->
+            {% for x in dd6 %}
+            <div class="event">
+              <div class="event-desc">
+                  {{ x.title }}
+              </div>
+              <div class="event-time">
+                {{ x.eventtime }}
+              </div>
+              {% endfor %}
+            <!-- EVENT END -->
+          </li>
+        
+  
+       
+          <li class="day">
+            <div class="date">7</div>
+            <!-- EVENT START -->
+            {% for x in dd7 %}
+            <div class="event">
+              <div class="event-desc">
+                  {{ x.title }}
+              </div>
+              <div class="event-time">
+                {{ x.eventtime }}
+              </div>
+              {% endfor %}
+            <!-- EVENT END -->
+          </li>
+      
+  
+       
+          <li class="day">
+            <div class="date">8</div>
+            <!-- EVENT START -->
+            {% for x in dd8 %}
+            <div class="event">
+              <div class="event-desc">
+                  {{ x.title }}
+              </div>
+              <div class="event-time">
+                {{ x.eventtime }}
+              </div>
+              {% endfor %}
+            <!-- EVENT END -->
+          </li>
+        </ul>
+        
+          <!-- week -->
+        <ul class="days">
+          <li class="day">
+            <div class="date">9</div>
+             <!-- EVENT START -->
+             {% for x in dd9 %}
+             <div class="event">
+               <div class="event-desc">
+                   {{ x.title }}
+               </div>
+               <div class="event-time">
+                 {{ x.eventtime }}
+               </div>
+               {% endfor %}
+             <!-- EVENT END -->
+          </li>
+        
+  
+       
+          <li class="day">
+            <div class="date">10</div>
+            <!-- EVENT START -->
+            {% for x in dd10 %}
+            <div class="event">
+              <div class="event-desc">
+                  {{ x.title }}
+              </div>
+              <div class="event-time">
+                {{ x.eventtime }}
+              </div>
+              {% endfor %}
+            <!-- EVENT END -->
+          </li>
+        
+  
+        
+          <li class="da">
+            <div class="date">11</div>
+            <!-- EVENT START -->
+            {% for x in dd11 %}
+            <div class="event">
+              <div class="event-desc">
+                  {{ x.title }}
+              </div>
+              <div class="event-time">
+                {{ x.eventtime }}
+              </div>
+              {% endfor %}
+            <!-- EVENT END -->
+          </li>
+       
+  
+       
+          <li class="day">
+            <div class="date">12</div>
+            <!-- EVENT START -->
+            {% for x in dd12 %}
+            <div class="event">
+              <div class="event-desc">
+                  {{ x.title }}
+              </div>
+              <div class="event-time">
+                {{ x.eventtime }}
+              </div>
+              {% endfor %}
+            <!-- EVENT END -->
+          </li>
+        
+  
+       
+          <li class="day">
+            <div class="date">13</div>
+             <!-- EVENT START -->
+             {% for x in dd13 %}
+             <div class="event">
+               <div class="event-desc">
+                   {{ x.title }}
+               </div>
+               <div class="event-time">
+                 {{ x.eventtime }}
+               </div>
+               {% endfor %}
+             <!-- EVENT END -->
+          </li>
+       
+  
+        
+          <li class="day">
+            <div class="date">14</div>
+            <!-- EVENT START -->
+            {% for x in dd14 %}
+            <div class="event">
+              <div class="event-desc">
+                  {{ x.title }}
+              </div>
+              <div class="event-time">
+                {{ x.eventtime }}
+              </div>
+              {% endfor %}
+            <!-- EVENT END -->
+          </li>
+       
+  
+       
+          <li class="day">
+            <div class="date">15</div>
+            <!-- EVENT START -->
+            {% for x in dd15 %}
+            <div class="event">
+              <div class="event-desc">
+                  {{ x.title }}
+              </div>
+              <div class="event-time">
+                {{ x.eventtime }}
+              </div>
+              {% endfor %}
+            <!-- EVENT END -->
+          </li>
+        </ul>
+        
+          <!-- week -->
+        <ul class="days">
+          <li class="day">
+            <div class="date">16</div>
+            <!-- EVENT START -->
+            {% for x in dd16 %}
+            <div class="event">
+              <div class="event-desc">
+                  {{ x.title }}
+              </div>
+              <div class="event-time">
+                {{ x.eventtime }}
+              </div>
+              {% endfor %}
+            <!-- EVENT END -->
+          </li>
+       
+  
+      
+          <li class="day">
+            <div class="date">17</div>
+            <!-- EVENT START -->
+            {% for x in dd17 %}
+            <div class="event">
+              <div class="event-desc">
+                  {{ x.title }}
+              </div>
+              <div class="event-time">
+                {{ x.eventtime }}
+              </div>
+              {% endfor %}
+            <!-- EVENT END -->
+          </li>
+        
+  
+      
+          <li class="da">
+            <div class="date">18</div>
+            <!-- EVENT START -->
+            {% for x in dd18 %}
+            <div class="event">
+              <div class="event-desc">
+                  {{ x.title }}
+              </div>
+              <div class="event-time">
+                {{ x.eventtime }}
+              </div>
+              {% endfor %}
+            <!-- EVENT END -->
+          </li>
+        
+   
+          <li class="day">
+            <div class="date">19</div>
+            <!-- EVENT START -->
+            {% for x in dd19 %}
+            <div class="event">
+              <div class="event-desc">
+                  {{ x.title }}
+              </div>
+              <div class="event-time">
+                {{ x.eventtime }}
+              </div>
+              {% endfor %}
+            <!-- EVENT END -->
+          </li>
+        
+  
+       
+          <li class="day">
+            <div class="date">20</div>
+            <!-- EVENT START -->
+            {% for x in dd20 %}
+            <div class="event">
+              <div class="event-desc">
+                  {{ x.title }}
+              </div>
+              <div class="event-time">
+                {{ x.eventtime }}
+              </div>
+              {% endfor %}
+            <!-- EVENT END -->
+          </li>         
+  
+       
+          <li class="day">
+            <div class="date">21</div>
+            <!-- EVENT START -->
+            {% for x in dd21 %}
+            <div class="event">
+              <div class="event-desc">
+                  {{ x.title }}
+              </div>
+              <div class="event-time">
+                {{ x.eventtime }}
+              </div>
+              {% endfor %}
+            <!-- EVENT END -->
+          </li>
+      
+  
+        
+          <li class="day">
+            <div class="date">22</div>
+            <!-- EVENT START -->
+            {% for x in dd22 %}
+            <div class="event">
+              <div class="event-desc">
+                  {{ x.title }}
+              </div>
+              <div class="event-time">
+                {{ x.eventtime }}
+              </div>
+              {% endfor %}
+            <!-- EVENT END -->
+          </li>
+        
+  
+       
+          <li class="day">
+            <div class="date">23</div>
+            <!-- EVENT START -->
+            {% for x in dd23 %}
+            <div class="event">
+              <div class="event-desc">
+                  {{ x.title }}
+              </div>
+              <div class="event-time">
+                {{ x.eventtime }}
+              </div>
+              {% endfor %}
+            <!-- EVENT END -->
+          </li>
+      
+  
+       
+          <li class="day">
+            <div class="date">24</div>
+            <!-- EVENT START -->
+            {% for x in dd24 %}
+            <div class="event">
+              <div class="event-desc">
+                  {{ x.title }}
+              </div>
+              <div class="event-time">
+                {{ x.eventtime }}
+              </div>
+              {% endfor %}
+            <!-- EVENT END -->
+          </li>
+
+          <li class="day">
+              <div class="date">25</div>
+              <!-- EVENT START -->
+              {% for x in dd25 %}
+              <div class="event">
+                <div class="event-desc">
+                    {{ x.title }}
+                </div>
+                <div class="event-time">
+                  {{ x.eventtime }}
+                </div>
+                {% endfor %}
+                <!-- EVENT END -->
+            </li>
+
+            <li class="day">
+              <div class="date">26</div>
+              <!-- EVENT START -->
+              {% for x in dd26 %}
+              <div class="event">
+                <div class="event-desc">
+                    {{ x.title }}
+                </div>
+                <div class="event-time">
+                  {{ x.eventtime }}
+                </div>
+                {% endfor %}
+                <!-- EVENT END -->
+            </li>
+
+            <li class="day">
+              <div class="date">27</div>
+              <!-- EVENT START -->
+              {% for x in dd27 %}
+              <div class="event">
+                <div class="event-desc">
+                    {{ x.title }}
+                </div>
+                <div class="event-time">
+                  {{ x.eventtime }}
+                </div>
+                {% endfor %}
+                <!-- EVENT END -->
+            </li>
+
+            <li class="day">
+              <div class="date">28</div>
+              <!-- EVENT START -->
+              {% for x in dd28 %}
+              <div class="event">
+                <div class="event-desc">
+                    {{ x.title }}
+                </div>
+                <div class="event-time">
+                  {{ x.eventtime }}
+                </div>
+                {% endfor %}
+                <!-- EVENT END -->
+            </li>
+
+            <li class="day">
+              <div class="date">29</div>
+              <!-- EVENT START -->
+              {% for x in dd29 %}
+              <div class="event">
+                <div class="event-desc">
+                    {{ x.title }}
+                </div>
+                <div class="event-time">
+                  {{ x.eventtime }}
+                </div>
+                {% endfor %}
+                <!-- EVENT END -->
+            </li>
+
+            <li class="day">
+              <div class="date">30</div>
+              <!-- EVENT START -->
+              {% for x in dd30 %}
+              <div class="event">
+                <div class="event-desc">
+                    {{ x.title }}
+                </div>
+                <div class="event-time">
+                  {{ x.eventtime }}
+                </div>
+                {% endfor %}
+                <!-- EVENT END -->
+            </li>
+
+            {% if ttt == 1 or ttt == 3 or ttt == 5 or ttt == 7 or ttt == 8 or ttt == 10 or ttt == 12 %}
+            <li class="day">
+                <div class="date">31</div>
+                <!-- EVENT START -->
+                {% for x in dd31 %}
+                <div class="event">
+                  <div class="event-desc">
+                      {{ x.title }}
+                  </div>
+                  <div class="event-time">
+                    {{ x.eventtime }}
+                  </div>
+                  {% endfor %}
+                  <!-- EVENT END -->
+              </li>
+              {% endif %}
         </ul>
         
   
@@ -2903,3 +4054,4 @@ body{
 {% else %}
 <h1>Wooo....</h1>
 {% endif %}
+

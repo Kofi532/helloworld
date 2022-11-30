@@ -64,7 +64,7 @@ urlpatterns = [
     path('u/', include('users.urls')),
     path('students/', user_views.stu_zone, name='home'),
     path("rich/", ServicePageView.as_view(), name='approve'),
-    path('rich2/', approve_view.calenda, name='home'),
+    path('activities/', approve_view.calenda, name='home'),
     path("event/", CalsPostView.as_view(), name='prefects'),
     
 

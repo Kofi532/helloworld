@@ -17,7 +17,8 @@ from django.shortcuts import render
 from posts.views import headboy, headmistress, sports_prefect, clubs_prefect
 from pages.models import Clubm, Sportm
 import pandas as pd
-from datetime import datetime
+from datetime import datetime, date
+
 #from users.models import Post
 
 
@@ -229,8 +230,10 @@ def calenda(request):
     dd30 = [dict(zip(col30, i)) for i in d30.values]
     col31 = [i for i in d31]
     dd31 = [dict(zip(col31, i)) for i in d31.values]
+    tt = date.today()
+    ttt = tt.month
 #    MonMes = Eventm.objects.all().filter(eventmonth='January')[0]
-    return render(request, 'calenda.html', {'dd1': dd1, 'dd2': dd2, 'dd3': dd3, 'dd4': dd4, 'dd5': dd5, 'dd6': dd6, 'dd7': dd7, 'dd8': dd8, 'dd9': dd9, 'dd10': dd10, 'dd11': dd11, 'dd12': dd12, 'dd13': dd13, 'dd14': dd14, 'dd15': dd15, 'dd16': dd16, 'dd17': dd17, 'dd18': dd18, 'dd19': dd19, 'dd20': dd20, 'dd21': dd21, 'dd22': dd22, 'dd23': dd23, 'dd24': dd24, 'dd25': dd25, 'dd26': dd26, 'dd27': dd27, 'dd28': dd28, 'dd29': dd29, 'dd30': dd30, 'dd31': dd31, 'day1': day1, 'month': month, 'yearr': yearr})
+    return render(request, 'calenda.html', {'ttt': ttt, 'dd1': dd1, 'dd2': dd2, 'dd3': dd3, 'dd4': dd4, 'dd5': dd5, 'dd6': dd6, 'dd7': dd7, 'dd8': dd8, 'dd9': dd9, 'dd10': dd10, 'dd11': dd11, 'dd12': dd12, 'dd13': dd13, 'dd14': dd14, 'dd15': dd15, 'dd16': dd16, 'dd17': dd17, 'dd18': dd18, 'dd19': dd19, 'dd20': dd20, 'dd21': dd21, 'dd22': dd22, 'dd23': dd23, 'dd24': dd24, 'dd25': dd25, 'dd26': dd26, 'dd27': dd27, 'dd28': dd28, 'dd29': dd29, 'dd30': dd30, 'dd31': dd31, 'day1': day1, 'month': month, 'yearr': yearr})
 
 class CalsPostView(CreateView):  # new
     model = Cals
