@@ -136,6 +136,7 @@ def calenda(request):
     yearr = datetime.now().year
  #   d1 = Cals.objects.all().filter(username= usernamed)
     df = pd.DataFrame(Cals.objects.all().values())
+    df = df[df['act'] == 'Yes']
     df['days'] = (df['eventdate'].dt.day)
     d1 = df[df['days'] == 1].iloc[:1]
     d2 = df[df['days'] == 2].iloc[:1]

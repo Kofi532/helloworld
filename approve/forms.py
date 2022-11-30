@@ -10,10 +10,11 @@ class PostForm(forms.ModelForm):
 class Event(forms.ModelForm):
     class Meta:
         model = Cals
-        fields = ["username", "title", "eventdate", "eventtime", "date", "approve"]
+        fields = ["username", "title", "eventdate", "eventtime", "date", "approve", "act"]
         widgets = {
             'eventtime': forms.TimeInput(attrs={'type': 'time'}),
             'eventdate': forms.DateInput(attrs={'type': 'date'}),
             'approve': forms.TextInput(attrs={'type': 'hidden'}),
             'date': forms.TextInput(attrs={'type': 'hidden'}),
+            'act': forms.TextInput(attrs={'type': 'hidden'}),
         }

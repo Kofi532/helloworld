@@ -22,6 +22,7 @@ class Cals(models.Model):
     eventtime = models.CharField(max_length=10, default='HH:MM')
     date  = models.DateTimeField(default=timezone.now)
     approve = models.CharField(max_length=10, default='Pending')
+    act = models.CharField(max_length=10, default='No')
 
 
 
