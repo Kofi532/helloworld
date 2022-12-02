@@ -122,9 +122,9 @@ class HomePageView(ListView):
 def ablog(request):
   username = None
   username = request.user.username
-  stu_blog = Post.objects.all().filter(approve='yes')
-  clu_blog = Clubm.objects.all().filter(approve='yes')
-  spo_blog = Sportm.objects.all().filter(approve='yes')
+  stu_blog = Post.objects.all().filter(approve='Yes')
+  clu_blog = Clubm.objects.all().filter(approve='Yes')
+  spo_blog = Sportm.objects.all().filter(approve='Yes')
   return render(request, 'ablog.html', {'stu_blog': stu_blog, 'clu_blog': clu_blog, 'spo_blog': spo_blog})
 
 def list_and_create(request):
@@ -135,10 +135,10 @@ def list_and_create(request):
     elements = Post_a.objects.all()
     df = pd.DataFrame(Post.objects.all().values())
     df2 = pd.DataFrame(Post_a.objects.all().values())
-    df3 = pd.merge(df, df2, on='idd', how='outer')
+  #  df3 = pd.merge(df, df2, on='idd', how='outer')
 
-    cols = [i for i in df3]
-    rake = [dict(zip(cols, i)) for i in df3.values]
+    cols = [i for i in df]
+    rake = [dict(zip(cols, i)) for i in df.values]
     if username in headmistress:
       return render(request, 'posthome.html', {'objects': objects, 'rake': rake})
     else:

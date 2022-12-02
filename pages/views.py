@@ -42,15 +42,15 @@ def home_and_create(request):
     else:
         form = PostForm()
     
-    i = len(Kk.objects.all().filter(approve='yes'))
-    ii = len(Clubm.objects.all().filter(approve='yes'))
-    iii = len(Sportm.objects.all().filter(approve='yes'))
+    i = len(Kk.objects.all().filter(approve='Yes'))
+    ii = len(Clubm.objects.all().filter(approve='Yes'))
+    iii = len(Sportm.objects.all().filter(approve='Yes'))
 
-    check1 = Kk.objects.all().filter(approve='yes')[i-1]
-    check2 = Kk.objects.all().filter(approve='yes')[i-2]
-    check3 = Kk.objects.all().filter(approve='yes')[i-3]
-    club1 = Clubm.objects.all().filter(approve='yes')[ii-1]
-    sport1 = Sportm.objects.all().filter(approve='yes')[iii-1]
+    check1 = Kk.objects.all().filter(approve='Yes')[i-1]
+    check2 = Kk.objects.all().filter(approve='Yes')[i-2]
+    check3 = Kk.objects.all().filter(approve='Yes')[i-3]
+    club1 = Clubm.objects.all().filter(approve='Yes')[ii-1]
+    sport1 = Sportm.objects.all().filter(approve='Yes')[iii-1]
 
 
     return render(request, 'index.html', {'form': form, 'check1': check1, 'check2': check2 , 'check3': check3, 'club1': club1, 'sport1': sport1 })
