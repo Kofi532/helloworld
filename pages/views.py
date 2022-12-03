@@ -1,7 +1,7 @@
 from unicodedata import name
 from django.views.generic import TemplateView
 from django.http import HttpResponseRedirect, HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.conf import settings
 import os
 from pathlib import Path
@@ -18,6 +18,9 @@ from django.template import RequestContext
 import requests
 from django.contrib.auth.models import User
 from datetime import datetime
+from django.core.mail import send_mail, BadHeaderError
+
+
 
 class GalleryPageView(TemplateView):
     template_name = "gallery.html"
@@ -29,15 +32,28 @@ class GreatePostView(CreateView):
     template_name = "index.html"
     success_url = '/'
 
-
-
-
-
+def contactView(request):
+    if request.method == "GET":
+        form = ContactForm()
+    else:
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            subject = form.cleaned_data["subject"]
+            from_email = form.cleaned_data["from_email"]
+            message = form.cleaned_data['message']
+            try:
+                send_mail(subject, message, from_email, ["admin@example.com"])
+            except BadHeaderError:
+                return HttpResponse("Invalid header found.")
+            return redirect("success")
+    return render(request, "email.html", {"form": form})
 
 def home_and_create(request):
-    
-    if request.method == 'POST':
-        form = PostForm(request.POST or None)
+    form = PostForm(request.POST or None)
+    if request.method == 'POST'and form.is_valid():
+        subject = 'Enquiries from Website'
+        from_email = form.cleaned_data["email"]
+        message = form.cleaned_data['message']
         form.save()
     else:
         form = PostForm()
@@ -55,6 +71,8 @@ def home_and_create(request):
 
     return render(request, 'index.html', {'form': form, 'check1': check1, 'check2': check2 , 'check3': check3, 'club1': club1, 'sport1': sport1 })
 
+def thanks(request):
+    return HttpResponse('Thank you for your message.')
 
 
 
